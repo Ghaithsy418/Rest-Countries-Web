@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme{
+  --color-cyan-950: hsl(207,26%,17%);
+  --color-cyan-900: hsl(209,23%,22%);
+}
+
+@layer components {
+  .text-dark-blue-dark-mode{
+    color: hsl(209,23%,22%);
+  }
+
+  .text-very-dark-blue-dark-mode{
+    color: hsl(207, 26%, 17%);
+  }
+
+  .text-very-dark-blue-light-mode{
+    color: hsl(200, 15%, 8%);
+  }
+
+  .text-dark-gray-light-mode{
+    color: hsl(0, 0%, 52%);
+  }
+
+  .text-very-light-gray-light-mode{
+    color: hsl(0, 0%, 98%);
+  }
+
+  .bg-very-light-gray{
+    background-color: hsl(0, 0%, 98%);
+  }
+
+  .font-family-custom{
+    font-family: "Nunito Sans", sans-serif;
+  }
+
+  .dots-5 {
+    width: 15px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: blue;
+    animation: d5 1s infinite linear alternate;
+  }
+  @keyframes d5 {
+      0%  {box-shadow: 20px 0 #000, -20px 0 #0002;background: #000 }
+      33% {box-shadow: 20px 0 #000, -20px 0 #0002;background: #0002}
+      66% {box-shadow: 20px 0 #0002,-20px 0 #000; background: #0002}
+      100%{box-shadow: 20px 0 #0002,-20px 0 #000; background: #000 }
+  }
+
+}
