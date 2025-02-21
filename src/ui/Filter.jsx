@@ -12,7 +12,7 @@ function Filter() {
   }
 
   return (
-    <select value={filter} onChange={handleChange} className="bg-white dark:bg-cyan-900 py-4 pl-3 pr-10 rounded-md shadow-md text-sm font-semibold">
+    <select name="filter" value={filter} onChange={handleChange} className="bg-white dark:bg-cyan-900 py-4 pl-3 pr-10 rounded-md shadow-md text-sm font-semibold">
       <option value="all">Filter by Region</option>
       <option value="africa">Africa</option>
       <option value="americas">Americas</option>
