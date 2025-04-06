@@ -1,13 +1,12 @@
-import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
-function AppLayout() {
+function AppLayout({ children }) {
   return (
     <>
       <Header />
       <main>
-        <div className="mx-auto flex pl-6 flex-col items-center justify-center dark:bg-cyan-950">
-          <Outlet />
+        <div className="mx-auto flex flex-col items-center justify-center pl-6 dark:bg-cyan-950">
+          {children}
         </div>
       </main>
     </>

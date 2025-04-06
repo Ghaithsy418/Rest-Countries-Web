@@ -6,22 +6,30 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { AnimatePresence } from "framer-motion";
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      cacheTime: 60 * 60 * 1000,
+    },
+  },
+});
+
 function App() {
-  const queryClient = new QueryClient();
   const location = useLocation();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.key}>
-          <Route element={<AppLayout />}>
+      <AppLayout>
+        <ReactQueryDevtools />
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
             <Route index element={<Navigate replace to="/countries" />} />
             <Route path="/countries" element={<Countries />} />
             <Route path="/countries/:name" element={<Country />} />
-          </Route>
-        </Routes>
-      </AnimatePresence>
+          </Routes>
+        </AnimatePresence>
+      </AppLayout>
     </QueryClientProvider>
   );
 }

@@ -12,14 +12,13 @@ const containerMotion = {
 
 const childrenLeftMotion = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-  exit: { x: "-150%" },
-  transition: { duratoin: 1 },
+  visible: { opacity: 1, transition: { duration: 1 } },
+  exit: { x: "-150%", transition: { duration: 0.35 } },
 };
 
 const childrenRightMotion = {
   ...childrenLeftMotion,
-  exit: { x: "150%" },
+  exit: { x: "150%", transition: { duration: 0.35 } },
 };
 
 function CountryDeatils() {
